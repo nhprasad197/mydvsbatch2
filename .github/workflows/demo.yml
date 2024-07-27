@@ -1,0 +1,25 @@
+name: Run Python Program
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11' # Specify the Python version you need
+
+    - name: Run Python script
+      run: python src/hello.py # Replace 'your_script.py' with your actual script name
